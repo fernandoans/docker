@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    container_name: meu-banco
+    ports:
+     - "3306:3306"
+    networks:
+      - minha-rede
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: "testedb"
+
+  adminer:
+    image: adminer
+    container_name: meu-administrador
+    ports:
+      - 8080:8080
+    networks:
+      - minha-rede
+
+  jupyter:
+    image: fernandoanselmo/docker-data-science
+    container_name: meu-jupyter
+    networks:
+      - minha-rede
+    ports:
+     - "8888:8888"
+    volumes:
+     - ~/Aplicativos/Projetos:/root/GitProjects
+
+networks: 
+  minha-rede:
+    driver: bridge

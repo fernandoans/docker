@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: meu-banco-graf
+    ports:
+     - 3306:3306
+    networks:
+      - minha-rede
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dash
+      
+  grafana:
+    image: grafana/grafana:latest
+    container_name: meu-grafana
+    ports:
+      - '3000:3000'
+    environment:
+      GF_INSTALL_PLUGINS: percona-percona-app      
+    networks:
+      - minha-rede
+
+networks: 
+  minha-rede:
+    driver: bridge
