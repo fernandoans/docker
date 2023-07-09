@@ -1,0 +1,5 @@
+Na pasta anterior
+$ docker build -t fernandoanselmo/docker-data-science docker-data-science
+
+Executar imagem:
+$ docker run -d -t -i --privileged -v /dev/ttyACM0:/dev/ttyACM0 -v ~/Aplicativos/ipynb:/root/GitProjects --network=host --name meu-jupyter2 fernandoanselmo/docker-data-science2

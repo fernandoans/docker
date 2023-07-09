@@ -1,0 +1,6 @@
+$ docker build -f Dockerfile -t fernandoanselmo/docker-deep .
+
+$ docker run -it -p 8888:8888 -p 6006:6006 -d -v /home/fernando/deep:/notebooks --name meu-deep fernandoanselmo/docker-deep
+
+$ docker run -it -p 8888:8888 -p 6006:6006 -d -v /home/fernando/deep:/notebooks --name meu-deep amaksimov/python_data_science
+

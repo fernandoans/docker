@@ -18,7 +18,7 @@ RUN ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
     # 3. Instalar os pacotes necessarios
 RUN apt update && \
     apt install --no-install-recommends --yes wget apt-utils ca-certificates pkg-config \
-      python3 git-all tzdata
+      git-all tzdata
 
     # 4. Proceder limpeza inicial
 RUN apt autoclean -y && \
